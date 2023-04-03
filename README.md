@@ -1,7 +1,7 @@
 # UE5RuntimeTransformGizmo
 
 ## 更新说明
-我基本上把三年前的蓝图推倒重写的，目前也没有弄成一个成熟的插件形式，因为我觉得这个也没有那么不成熟，很抱歉~ 不过我觉得当前这个版本已经适用于我目前的大部分项目了。不过  
+我基本上把三年前的蓝图推倒重写的，目前也没有弄成一个成熟的插件形式，因为我觉得这个也没有那么成熟，很抱歉~ 不过我觉得当前这个版本已经适用于我目前的大部分项目了。不过  
 我把它做成了我喜欢的样子   
 ![](Documentation/Images/visual_translate.png)  
 ![](Documentation/Images/visual_rotate.png)  
