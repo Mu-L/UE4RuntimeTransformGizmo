@@ -1,5 +1,14 @@
 # UE5RuntimeTransformGizmo
 
+## 更新说明
+我基本上把三年前的蓝图推倒重写的，目前也没有弄成一个成熟的插件形式，因为我觉得这个也没有那么不成熟，很抱歉~ 不过我觉得当前这个版本已经适用于我目前的大部分项目了。不过  
+我把它做成了我喜欢的样子   
+![](Documentation/Images/visual_translate.png)  
+![](Documentation/Images/visual_rotate.png)  
+![](Documentation/Images/visual_scale.png)  
+![](Documentation/Images/visual_combined.png)  
+
+
 ## 使用方法
 1. 打开该项目并在内容浏览器中右击Mytaverse这个文件夹，选择迁移到你的项目Content目录下  
 ![](Documentation/Images/migrate_content.png)  
@@ -17,7 +26,7 @@
 
 4. 在Pawn蓝图中添加LeftMouseButton事件并接入PointerInteraction组件的PressPointer和ReleasePointer方法
 ![](Documentation/Images/mouse_click.png)
-    - 如果鼠标悬停在TransformGizmo上市，按下鼠标左键后会进入拖拽状态，这个时候我们一般不希望视角发生变化。  
+    - 如果鼠标悬停在TransformGizmo上时，按下鼠标左键后会进入拖拽状态，这个时候我们一般不希望视角发生变化。  
     我这里判断PointerInteraction进入拖拽状态之后，就调用PlayerController的SetIgnoreLookInput来禁用视角控制，在鼠标松开之后在启用视角控制。
 
 5. 在需要显示并启用Gizmo的地方，只需要对BP_TransformGizmo对象调用ActivateGizmo就可以了，当然需要先在场景里放置或生成一个BP_TransformGizmo对象  
@@ -25,14 +34,11 @@
     - ActivateGizmo方法的InitialTransform表示显示Gizmo时候的初始Transform，一般在对一个Actor启用Gizmo的时候要把该Actor的Transform传入
     - TransformEvent会在拖拽Gizmo的时候持续调用并传出当前计算得到的Transform结果，这个结果可以根据需要来使用
 
-6. 控制列表
-
-    控制|说明
-    -|-
-    |
+6. 控制函数列表
+![](Documentation/Images/control_api.png)
 
 ## 其他
-- UE5其实已经内置这个功能了，可以运行时使用  
+- UE5其实已经内置这个功能了，可以运行时使用，可以在引擎的[InteractiveToolsFramework](https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Source/Runtime/InteractiveToolsFramework)模块中找到相关代码  
 ![](https://images.squarespace-cdn.com/content/v1/574f72911d07c08c97939643/1608324621401-5CLYGEIS5S5GF1CNNS0M/ToolsFrameworkDemo_Gizmo.png?format=300w)  
 [参考文章1](https://www.gradientspace.com/tutorials/2022/6/1/the-interactive-tools-framework-in-ue5)  
 [参考文章2](https://www.gradientspace.com/tutorials/2021/01/19/the-interactive-tools-framework-in-ue426)
